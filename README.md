@@ -5,14 +5,12 @@ An elegant, minimalistic desktop clock built in Python. It uses a custom, fluid 
 ## The Core Concept (The Matrix)
 
 A 4-segment display represents the theoretical minimum needed to map the digits 0 through 9. This project achieves this using four specifically engineered segments:
-
 * **S1:** The fluid lower-left curve.
 * **S2:** The fluid upper-left curve.
 * **S3:** The shortened top horizontal bar with dynamic design accents.
 * **S4:** The sharp right-side vertical stem featuring handwritten detail artifacts.
 
 ### Digit Mapping Definitions
-
 * **Digit 0:** Uses segment S1 (Solo lower curve)
 * **Digit 1:** Uses segment S4 (Solo right stem)
 * **Digit 2:** Uses segments S1 and S3 (Top bar + lower curve)
@@ -32,16 +30,14 @@ A 4-segment display represents the theoretical minimum needed to map the digits 
 * **Per-Pixel Transparency:** Transparent background blending perfectly with your desktop wallpaper.
 * **Quick Close:** Right-click anywhere on the clock to exit instantly.
 
-## Visual Interpretation \& Scientific Accuracy
+## Visual Interpretation & Scientific Accuracy
 
-The display design of this clock utilizes a highly stylized approach where individual lines elegantly form recognizable digits. While the shapes are minimalist and not fully filled in, they flow together naturally into an intuitive and correct overall image.
+The display design of this clock utilizes a highly stylized approach where individual lines elegantly form recognizable digits. While the shapes are minimalist and not fully filled in, they flow together naturally into an intuitive and correct overall image. 
 
 This ensures excellent ergonomics: anyone reading the clock—such as a scientist needing to record precise measurement data—can instantly recognize and copy the shape of the digits without having to double-guess or interpret what number is being shown.
 
 ### The Only Exception: The Number Zero ('0')
-
 The number **zero** is the only exception to the standard layout:
-
 * It is displayed at **half-height**.
 * It uses a more open, minimalist outline.
 * However, it still retains its correct, recognizable shape.
@@ -53,20 +49,15 @@ Because the number zero is historically and mathematically often treated as an e
 Make sure you have Python installed. Tkinter comes pre-installed with standard Python distributions.
 
 1. Clone this repository or download the script:
-
-```bash
+   ```bash
    git clone github.com
    ```
-
 2. Go into the folder:
-
-```bash
+   ```bash
    cd pure-4-segment-clock
    ```
-
 3. Run the clock application:
-
-```bash
+   ```bash
    python clock.py
    ```
 
@@ -77,33 +68,19 @@ This project introduces a unique, ultra-minimalistic 4-segment display specifica
 ### Why this display is unique:
 
 * **Perfect for narrow probe pens:** Due to the unique geometry of the 4 segments, the display features a highly slender, elongated form factor. This allows it to fit perfectly on the side of a narrow probe, keeping the measurement value directly within your line of sight while working on microscopic SMD components.
-* **Extremely low manufacturing costs:** While traditional displays require dozens of pins and expensive driver chips, this design reduces the connection count to just 7 or 8 lines (including decimal points and multiplexing).
-* **Minimal hardware requirements:** This minimal pin count means that upfront tooling costs for a custom LCD glass pane are exceptionally low. Furthermore, the display can be driven by the most basic, low-cost microcontrollers or logic circuits available on the market.
+* **Extremely low manufacturing costs:** While traditional displays require dozens of pins and expensive driver chips, this design reduces the external connection count drastically.
+* **Minimal hardware requirements:** The minimal pin count means that upfront tooling costs for a custom LCD glass pane are exceptionally low. Furthermore, the display can be driven by the most basic, low-cost microcontrollers or logic circuits available on the market.
 
-### Achieving the Absolute Theoretical Minimum: Wired via Phantom-COM Logic
+### Achieving the Absolute Theoretical Minimum: Integrated Diode-Matrix Architecture
 
-To maximize cable flexibility, eliminate mechanical strain, and ensure the display can be integrated into an exceptionally slim probe pen, this architecture bypasses traditional multi-wire display configurations. By leveraging an inventive resistive matrix and inverse-bit logic, the display cuts the required conductor count to the absolute theoretical minimum.
+To maximize cable flexibility, eliminate mechanical strain, and ensure the display can be integrated into an exceptionally slim probe pen, this architecture bypasses traditional multi-wire display configurations. By integrating ultra-small surface-mount technology (SMD) diode-arrays directly inside the LCD module package (via Chip-on-Glass or internal PCB substrate), the required external conductor count is cut to the absolute theoretical minimum.
 
-#### 🔹 The 4-Digit Configuration: Only 8 Wires
-
-* **The Wire Count:** Exactly 8 wires are required to drive 4 full digits, decimal points, and polarity signs.
-* **How it works:** Instead of utilizing a dedicated, physical Common (COM) power line, the COM reference is dynamically generated via a specialized onboard resistor network.
-* **Inverse-Bit Logic \& 3-AND Matrix:** By operating on a higher voltage supply and using inverse bits directly at the inputs, there is always at least one line acting as the phantom-COM feed. To form the complex digit '8' (which illuminates all four segments simultaneously), the connection is driven through a highly compact 3-input AND logic circuit built entirely out of low-profile resistors.
-* **Sign Sharing (MSD Hack):** Because the Most Significant Digit (MSD) in a standard multimeter circuit never exceeds 1, its unused segment lines are repurposed to natively drive the decimal points and polarity indicators without requiring a single extra wire.
-
-#### 🔹 The 3-Digit Configuration: Only 7 Wires
-
-* **The Wire Count:** Exactly 7 wires in total, allowing the entire interface to be routed through a single edge of the glass display.
-* **How it works:** Scaling the device down to a 3-digit architecture drops a physical digit control line. Applying the exact same passive phantom-COM resistance logic yields a fully functional, multiplexed layout running on just 7 conductors.
-* **Form Factor Advantage:** A 7-wire layout takes up less than 8 mm of linear space on the glass substrate. This allows for simple, one-sided zebra-strip compression and leaves the other three sides of the display completely borderless, flush against the edge of the probe pen.
-
-### 📐 Physical Space \& Layout Optimization
-
-All passive logic gates, inverse-bit routing, and resistor arrays utilize ultra-small surface-mount technology (SMD 0402 or 0201 packages) and integrated resistor networks. Because a probe meter naturally provides ample space in the longitudinal direction, these components are lined up in a single, narrow row along the length of the internal PCB. They occupy virtually zero display surface area, keeping the active viewing window 100% pure, sleek, and unobstructed.
-
-While the bare display still features the standard pinout, including dedicated COM lines, the auxiliary resistor network condenses these connections down to the absolute minimum.
+#### 🔹 The 3½-Digit Configuration: Ultra-Low Wire Count
+* **The Wire Count:** Only a minimal set of control lines is required to drive a full 3½ digit array (up to `1999`), including decimal points and polarity signs.
+* **Integrated OR-Logic:** The internal SMD switching diodes form a hardware-level isolation matrix. This allows multiple segments to share cross-multiplexed control lines without causing signal leakages or ghosting (cross-talk). Complex overlapping digit states—like a `2` (S1+S3) vs a `5` (S1+S2+S3)—are cleanly decoded internally.
+* **Sign Sharing (MSD Hack):** Because the Most Significant Digit (MSD) in a standard multimeter circuit never exceeds 1 and never displays a 0, its unused logic states are repurposed to natively drive the decimal points and polarity indicators without requiring a single extra wire.
+* **Form Factor Advantage:** The entire layout takes up minimal linear space on the substrate. This allows for simple, one-sided zebra-strip compression or a minimal FPC ribbon cable, leaving the other three sides of the display completely borderless, sitting perfectly flush against the edge of the probe pen.
 
 ## License
 
 This project is licensed under the MIT License. Feel free to use, modify, and build upon this matrix for your own hardware or software display projects!
-
