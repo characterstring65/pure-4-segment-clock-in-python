@@ -77,8 +77,9 @@ To maximize cable flexibility, eliminate mechanical strain, and ensure the displ
 
 #### 🔹 The 3½-Digit Configuration: Ultra-Low Wire Count
 * **The Wire Count:** Only a minimal set of control lines is required to drive a full 3½ digit array (up to `1999`), including decimal points and polarity signs.
-* **Integrated OR-Logic:** The internal SMD switching diodes form a hardware-level isolation matrix. This allows multiple segments to share cross-multiplexed control lines without causing signal leakages or ghosting (cross-talk). Complex overlapping digit states—like a `2` (S1+S3) vs a `5` (S1+S2+S3)—are cleanly decoded internally.
-* **Sign Sharing (MSD Hack):** Because the Most Significant Digit (MSD) in a standard multimeter circuit never exceeds 1 and never displays a 0, its unused logic states are repurposed to natively drive the decimal points and polarity indicators without requiring a single extra wire.
+* **Integrated OR-Logic:** The internal SMD switching diodes form a hardware-level isolation matrix. This allows multiple segments to share cross-multiplexed control lines without causing signal leakages or ghosting (cross-talk) between the main digits.
+* **The Decimal Point Pragmatism (The Diode Compromise):** To achieve the absolute hardware minimum without active logic, the decimal points share lines via the passive diode OR-matrix. This means that when a decimal point is active (e.g., measuring tenths like `1.9`), the subsequent decimal points will also illuminate (`1.9.9.9`). For rapid SMD prototyping and measurements, this visual artifact is easily filtered out by the human brain, keeping the display functional yet incredibly cheap to manufacture. 
+* **Active Alternative:** Developers looking for a 100% clean visual separation of the decimal points can implement ultra-small SMD transistor-arrays (AND-logic) internally—but we leave that architectural upgrade as an exercise for the reader.
 * **Form Factor Advantage:** The entire layout takes up minimal linear space on the substrate. This allows for simple, one-sided zebra-strip compression or a minimal FPC ribbon cable, leaving the other three sides of the display completely borderless, sitting perfectly flush against the edge of the probe pen.
 
 ## License
