@@ -80,7 +80,17 @@ To maximize cable flexibility, eliminate mechanical strain, and ensure the displ
 * **Integrated OR-Logic:** The internal SMD switching diodes form a hardware-level isolation matrix. This allows multiple segments to share cross-multiplexed control lines without causing signal leakages or ghosting (cross-talk) between the main digits.
 * **The Decimal Point Pragmatism (The Diode Compromise):** To achieve the absolute hardware minimum without active logic, the decimal points share lines via the passive diode OR-matrix. This means that when a decimal point is active (e.g., measuring tenths like `1.9`), the subsequent decimal points will also illuminate (`1.9.9.9`). For rapid SMD prototyping and measurements, this visual artifact is easily filtered out by the human brain, keeping the display functional yet incredibly cheap to manufacture. 
 * **Active Alternative:** Developers looking for a 100% clean visual separation of the decimal points can implement ultra-small SMD transistor-arrays (AND-logic) internally—but we leave that architectural upgrade as an exercise for the reader.
-* **Form Factor Advantage:** The entire layout takes up minimal linear space on the substrate. This allows for simple, one-sided zebra-strip compression or a minimal FPC ribbon cable, leaving the other three sides of the display completely borderless, sitting perfectly flush against the edge of the probe pen.
+
+#### 🔄 Enhanced Visibility & Dual-Probe Flexibility
+* **Ultra-Low Wire Count:** With this 3½-digit architecture, only **8 wires** are required at the edge of the narrow display substrate, compared to at least 12 wires on a conventional 3½-digit LCD panel.
+* **Flip-Up Design Capability:** Because there are so few connections, the display can easily be designed as a flip-up or tiltable module on the probe pen, allowing for a much better viewing angle during precision work.
+* **Dual-Display Routing (The Twin-Probe Advantage):** These 8 thin conductors can seamlessly be routed alongside the main measurement wire to the second probe pen. By integrating a second identical display into the other electrode, you achieve unprecedented visibility. Since at least one of the two probe pens is always directly within your line of sight during manual testing, you never have to twist your wrist or look away from the components to see the measurement results.
+
+### 📐 Physical Space & Layout Optimization
+
+All passive logic gates, inverse-bit routing, and resistor arrays utilize ultra-small surface-mount technology (SMD 0402 or 0201 packages) and integrated resistor networks. Because a probe meter naturally provides ample space in the longitudinal direction, these components are lined up in a single, narrow row along the length of the internal PCB. They occupy virtually zero display surface area, keeping the active viewing window 100% pure, sleek, and unobstructed.
+
+While the bare display still features the standard pinout, including dedicated COM lines, the auxiliary resistor network condenses these connections down to the absolute minimum.
 
 ## License
 
