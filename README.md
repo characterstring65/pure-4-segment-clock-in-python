@@ -71,26 +71,34 @@ This project introduces a unique, ultra-minimalistic 4-segment display specifica
 * **Extremely low manufacturing costs:** While traditional displays require dozens of pins and expensive driver chips, this design reduces the external connection count drastically.
 * **Minimal hardware requirements:** The minimal pin count means that upfront tooling costs for a custom LCD glass pane are exceptionally low. Furthermore, the display can be driven by the most basic, low-cost microcontrollers or logic circuits available on the market.
 
-### Achieving the Absolute Theoretical Minimum: Integrated Diode-Matrix Architecture
+## Achieving the Absolute Theoretical Minimum: Pure 4x4 Matrix Multiplexing
 
-To maximize cable flexibility, eliminate mechanical strain, and ensure the display can be integrated into an exceptionally slim probe pen, this architecture bypasses traditional multi-wire display configurations. By integrating ultra-small surface-mount technology (SMD) diode-arrays directly inside the LCD module package (via Chip-on-Glass or internal PCB substrate), the required external conductor count is cut to the absolute theoretical minimum.
+To maximize cable flexibility, eliminate mechanical strain, and completely remove the need for internal active components (like transistors) or complex diode-arrays, this architecture treats the entire display as a mathematically perfect **4x4 matrix**.
 
-#### 🔹 The 3½-Digit Configuration: Ultra-Low Wire Count
-* **The Wire Count:** Only a minimal set of control lines is required to drive a full 3½ digit array (up to `1999`), including decimal points and polarity signs.
-* **Integrated OR-Logic:** The internal SMD switching diodes form a hardware-level isolation matrix. This allows multiple segments to share cross-multiplexed control lines without causing signal leakages or ghosting (cross-talk) between the main digits.
-* **The Decimal Point Pragmatism (The Diode Compromise):** To achieve the absolute hardware minimum without active logic, the decimal points share lines via the passive diode OR-matrix. This means that when a decimal point is active (e.g., measuring tenths like `1.9`), the subsequent decimal points will also illuminate (`1.9.9.9`). For rapid SMD prototyping and measurements, this visual artifact is easily filtered out by the human brain, keeping the display functional yet incredibly cheap to manufacture. 
-* **Active Alternative:** Developers looking for a 100% clean visual separation of the decimal points can implement ultra-small SMD transistor-arrays (AND-logic) internally—but we leave that architectural upgrade as an exercise for the reader.
+By omitting the traditional physical minus sign, the display requires **exactly 16 individual segment elements** to achieve a full 3½-digit readout with decimal points:
+* 3 digits × 4 segments = **12 segments**
+* 1 Most Significant Digit (the '1' for the MSD) = **1 segment**
+* 3 decimal points = **3 segments**
+* **Total = Exactly 16 elements**
 
-#### 🔄 Enhanced Visibility & Dual-Probe Flexibility
-* **Ultra-Low Wire Count:** With this 3½-digit architecture, only **8 wires** are required at the edge of the narrow display substrate, compared to at least 12 wires on a conventional 3½-digit LCD panel.
-* **Flip-Up Design Capability:** Because there are so few connections, the display can easily be designed as a flip-up or tiltable module on the probe pen, allowing for a much better viewing angle during precision work.
-* **Dual-Display Routing (The Twin-Probe Advantage):** These 8 thin conductors can seamlessly be routed alongside the main measurement wire to the second probe pen. By integrating a second identical display into the other electrode, you achieve unprecedented visibility. Since at least one of the two probe pens is always directly within your line of sight during manual testing, you never have to twist your wrist or look away from the components to see the measurement results.
+### 🔹 The 8-Wire Configuration (100% Efficiency)
 
-### 📐 Physical Space & Layout Optimization
+Because a 4x4 matrix yields exactly 16 intersection points, this layout achieves **100% pin efficiency**. Every single node in the matrix is utilized, allowing the entire 3½-digit interface to be driven using **exactly 8 wires** (4 rows + 4 columns) with absolutely zero component overhead inside the probe pen.
 
-All passive logic gates, inverse-bit routing, and resistor arrays utilize ultra-small surface-mount technology (SMD 0402 or 0201 packages) and integrated resistor networks. Because a probe meter naturally provides ample space in the longitudinal direction, these components are lined up in a single, narrow row along the length of the internal PCB. They occupy virtually zero display surface area, keeping the active viewing window 100% pure, sleek, and unobstructed.
+#### The 4x4 Matrix Mapping Table:
 
-While the bare display still features the standard pinout, including dedicated COM lines, the auxiliary resistor network condenses these connections down to the absolute minimum.
+| | **Column 1** | **Column 2** | **Column 3** | **Column 4** |
+|:---|:---|:---|:---|:---|
+| **Row 1** | Digit 1 - S1 | Digit 1 - S2 | Digit 1 - S3 | Digit 1 - S4 |
+| **Row 2** | Digit 2 - S1 | Digit 2 - S2 | Digit 2 - S3 | Digit 2 - S4 |
+| **Row 3** | Digit 3 - S1 | Digit 3 - S2 | Digit 3 - S3 | Digit 3 - S4 |
+| **Row 4** | Decimal 1 (`.`) | Decimal 2 (`.`) | Decimal 3 (`.`) | **MSD (The '1')** |
+
+### 🔹 Ergonomic Innovations
+
+* **Zero Ghosting & Zero Artifacts:** Because matrix multiplexing scans one row at a time via software timing, there is no electrical leakage or "cross-talk". Decimal points illuminate with 100% independent clarity without affecting adjacent segments.
+* **Smart Blink Polarity Signaling:** To bypass the need for a 17th segment element (the minus sign), a negative measurement is indicated by **flashing/blinking the entire display**. From an ergonomic standpoint, this high-contrast visual cue is instantly recognizable in a technician's peripheral vision while performing microscopic SMD testing.
+* **Flip-Up Design & Twin-Probe Flexibility:** With only 8 connections required at the edge of the narrow substrate, the display can easily be designed as a flip-up or tiltable module. Furthermore, these 8 thin conductors can seamlessly be routed alongside the main measurement wire to the second probe pen for a dual-display setup.
 
 ## License
 
