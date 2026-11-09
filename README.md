@@ -100,6 +100,12 @@ Because a 4x4 matrix yields exactly 16 intersection points, this layout achieves
 * **Smart Blink Polarity Signaling:** To bypass the need for a 17th segment element (the minus sign), a negative measurement is indicated by **flashing/blinking the entire display**. From an ergonomic standpoint, this high-contrast visual cue is instantly recognizable in a technician's peripheral vision while performing microscopic SMD testing.
 * **Flip-Up Design & Twin-Probe Flexibility:** With only 8 connections required at the edge of the narrow substrate, the display can easily be designed as a flip-up or tiltable module. Furthermore, these 8 thin conductors can seamlessly be routed alongside the main measurement wire to the second probe pen for a dual-display setup.
 
+### 🏭 Exclusive Custom Manufacturing & Implementation
+
+The mathematical clarity and minimal requirements of this 4x4 matrix mapping provide everything needed to commission a fully custom, tailored LCD glass pane. This layout contains all the blueprint data an LCD manufacturer needs to produce the custom display.
+
+While custom glass panels might sound complex, modern manufacturing techniques mean it is a highly viable and exclusive option. It is absolutely worth requesting a quote from a custom LCD manufacturer to turn this exact segment architecture into a physical, bespoke hardware component for your high-end multimeter project.
+
 ## License
 
 This project is licensed under the MIT License. Feel free to use, modify, and build upon this matrix for your own hardware or software display projects!
