@@ -71,11 +71,11 @@ This project introduces a unique, ultra-minimalistic 4-segment display specifica
 * **Extremely low manufacturing costs:** While traditional displays require dozens of pins and expensive driver chips, this design reduces the external connection count drastically.
 * **Minimal hardware requirements:** The minimal pin count means that upfront tooling costs for a custom LCD glass pane are exceptionally low. Furthermore, the display can be driven by the most basic, low-cost microcontrollers or logic circuits available on the market.
 
-## Achieving the Absolute Theoretical Minimum: Pure 4x4 Matrix Multiplexing
+### Achieving the Absolute Theoretical Minimum: Pure 4x4 Matrix Multiplexing
 
-To maximize cable flexibility, eliminate mechanical strain, and completely remove the need for internal active components (like transistors) or complex diode-arrays, this architecture treats the entire display as a mathematically perfect **4x4 matrix**.
+To maximize cable flexibility, eliminate mechanical strain, and completely remove the need for internal active components (like transistors) or complex diode-arrays, this architecture treats the entire display as a mathematically perfect **4x4 matrix**. 
 
-By omitting the traditional physical minus sign, the display requires **exactly 16 individual segment elements** to achieve a full 3½-digit readout with decimal points:
+By omitting the traditional physical minus sign and leveraging the fact that the Most Significant Digit (MSD) never displays a zero (only a '1' or blank), the display requires exactly 16 individual segment elements to achieve a full 3½-digit readout with decimal points:
 * 3 digits × 4 segments = **12 segments**
 * 1 Most Significant Digit (the '1' for the MSD) = **1 segment**
 * 3 decimal points = **3 segments**
