@@ -167,7 +167,6 @@ class Pure4SegmentGlijdendeKlok:
         
         self.teken_cijfer(p0, toon_str[0])
         self.teken_cijfer(p1, toon_str[1])
-        self.teken_dubbele_punt(315)
         self.teken_cijfer(p2, toon_str[2])
         self.teken_cijfer(p3, toon_str[3])
         
