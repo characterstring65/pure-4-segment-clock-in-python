@@ -113,6 +113,14 @@ To bypass the need for a 17th segment element (the minus sign) in test equipment
 #### 🔄 Flip-Up Design & Twin-Probe Flexibility
 With only 8 connections required at the edge of the narrow substrate, the display can easily be designed as a flip-up or tiltable module. Furthermore, these 8 thin conductors can seamlessly be routed alongside the main measurement wire to the second probe pen for a dual-display setup.
 
+### 📐 Physical Space & Mechanical Layout Optimization
+
+To allow for an optimal flip-up viewing angle on an 8 mm thick pen or probe device, the glass substrate extends exactly **8 mm beyond the position of the final digit**. This extra surface area provides a highly reliable, hidden mechanical connection zone:
+
+* **Internal Rotation Substrate:** Approximately **6 mm** of this extended glass substrate rotates directly into the interior of the 8 mm thick pen chassis. This allows the internal hinge mechanism to shield the delicate electrical contacts.
+* **Protected Electrode Connection Vias:** Within this 6 mm internal section, the transparent ITO (Indium Tin Oxide) matrix traces widen into robust connection electrodes. An elastomeric zebra-strip connector or a micro-FPC ribbon cable is compressed against this zone, completely isolated from external environmental stress, dust, or handling.
+* **Seamless Trace Routing:** The remaining **2 mm** acts as a sleek, borderless transition bridge outside the chassis, ensuring that all 16 routing traces can seamlessly run parallel down to the 8 core edge connectors without intersecting or cluttering the active viewing window.
+
 ### 🏭 Exclusive Custom Manufacturing & Implementation
 
 The mathematical clarity and minimal requirements of this 4x4 matrix mapping provide everything needed to commission a fully custom, tailored LCD glass pane. This layout contains all the blueprint data an LCD manufacturer needs to produce the custom display.
