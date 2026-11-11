@@ -127,6 +127,13 @@ To transition this device from a simple gadget into a laboratory-grade precision
 * **The 9th Conductor 'Sense' Hack:** By adding just one extra, microscopic "Sense" wire alongside the 8 display-matrix conductors to the secondary probe, the circuit is split into dedicated **Source (Current)** and **Sense (Voltage)** paths. The high-current source line shares the existing matrix ground/power return, while the ultra-thin 9th wire measures voltage directly at the tip of the secondary electrode.
 * **Laboratory Precision:** Because virtually zero current flows through the dedicated Sense line, the voltage drop across the retractable cable is exactly zero. The multimeter measures the absolute, pure potential directly at the probe tips, delivering flawless accuracy while keeping the retractable ribbon cable thin, flexible, and compact.
 
+#### 🔌 Modular External Shunt for Current Measurements (Ampere)
+To keep the pen-multimeter ultra-compact and streamlined enough to fit effortlessly into a shirt front pocket like a standard fountain pen, heavy and heat-generating current shunts have been deliberately omitted from the internal chassis. Instead, this architecture introduces a brilliant, modular approach to measuring current:
+
+* **The External Shunt Wire:** When current measurements (Amperes) are required, the user utilizes a separate, external cable equipped with a highly precise and calibrated shunt resistor. This slightly more robust wire can easily be carried in a trousers pocket or tool pouch until needed.
+* **Voltage Drop Via Ohm's Law:** By placing this external shunt wire in series with the target circuit, the pen-multimeter uses its sharp probe tips to measure the pure voltage drop (in millivolts) across the known external resistance. Utilizing Ohm's Law ($I = U / R$), the internal microcontroller instantaneously calculates the exact current and displays it seamlessly as "Amperes" on the LCD.
+* **Thermal and Spatial Isolation:** Any heat generated during high-current testing remains entirely outside the pen housing. This keeps the primary instrument in your pocket featherlight, ultra-slim, and perfectly safe, without sacrificing the capabilities of a full-featured multimeter.
+
 ### 📐 Physical Space & Mechanical Layout Optimization
 
 To allow for an optimal flip-up viewing angle on an 8 mm thick pen or probe device, the glass substrate extends exactly **8 mm beyond the position of the final digit**. This extra surface area provides a highly reliable, hidden mechanical connection zone:
