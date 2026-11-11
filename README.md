@@ -107,6 +107,13 @@ With the central colon indicators wired to be **constantly active via simple onb
 
 This systematic approach can be mirrored for calendar data (Day:Month). The time literally glides before your eyes, making the interface completely organic and naturally legible within moments of use.
 
+#### 💡 Zero-Wire Threshold Status LED Integration
+As an ultimate feat of minimalist hardware engineering, a direct-view surface-mount **Status LED** (e.g., a green continuity/pass indicator) can be embedded directly onto the LCD substrate without adding a single extra connection trace. This keeps the external interface at the absolute mathematical limit of **exactly 8 wires**.
+
+* **Forward Voltage Threshold Logic:** The LED is wired in parallel across two existing matrix lines. Standard LCD segments operate at low AC voltages (e.g., 1.5V to 2.0V), which remains strictly below the semiconductor turn-on threshold (*forward voltage*) of a typical green or blue LED (approx. 2.8V to 3.2V). During normal measurement readouts, the LED remains completely dark and invisible.
+* **High-Voltage Micro-Pulse Signaling:** When a status trigger occurs (such as a successful continuity test or a warning), the microcontroller injects a brief, higher-voltage pulse (e.g., 3.3V to 5.0V) between the rows during the display's blanking phase.
+* * **Zero Visual Interference:** Because a liquid crystal (LCD) reacts relatively slowly to voltage changes (tens of milliseconds), the micro-second electrical pulse passes completely unnoticed by the display segment, while causing the ultra-fast SMD LED to emit a bright, instantaneous strobe flash. 
+
 #### 🚨 Smart Blink Polarity Signaling (For Multimeters)
 To bypass the need for a 17th segment element (the minus sign) in test equipment, a negative measurement is indicated by **flashing/blinking the entire display**. From an ergonomic standpoint, this high-contrast visual cue is instantly recognizable in a technician's peripheral vision while performing microscopic SMD testing.
 
