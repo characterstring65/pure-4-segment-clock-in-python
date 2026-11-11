@@ -120,6 +120,13 @@ To bypass the need for a 17th segment element (the minus sign) in test equipment
 #### 🔄 Flip-Up Design & Twin-Probe Flexibility
 With only 8 connections required at the edge of the narrow substrate, the display can easily be designed as a flip-up or tiltable module. Furthermore, these 8 thin conductors can seamlessly be routed alongside the main measurement wire to the second probe pen for a dual-display setup.
 
+#### 🔍 Professional 4-Wire Kelvin Measurement Integration
+To transition this device from a simple gadget into a laboratory-grade precision instrument, the retractable cable architecture between the two probe pens utilizes a **9-conductor layout** to enable true **4-point (Kelvin) resistance measurements**.
+
+* **Eliminating Retractable Cable Resistance:** Retractable cables inherently introduce a variable parasitic resistance depending on how far the wire is extended. In a standard 2-point measurement, this would severely degrade accuracy when testing low-value SMD resistors or shunts.
+* **The 9th Conductor 'Sense' Hack:** By adding just one extra, microscopic "Sense" wire alongside the 8 display-matrix conductors to the secondary probe, the circuit is split into dedicated **Source (Current)** and **Sense (Voltage)** paths. The high-current source line shares the existing matrix ground/power return, while the ultra-thin 9th wire measures voltage directly at the tip of the secondary electrode.
+* **Laboratory Precision:** Because virtually zero current flows through the dedicated Sense line, the voltage drop across the retractable cable is exactly zero. The multimeter measures the absolute, pure potential directly at the probe tips, delivering flawless accuracy while keeping the retractable ribbon cable thin, flexible, and compact.
+
 ### 📐 Physical Space & Mechanical Layout Optimization
 
 To allow for an optimal flip-up viewing angle on an 8 mm thick pen or probe device, the glass substrate extends exactly **8 mm beyond the position of the final digit**. This extra surface area provides a highly reliable, hidden mechanical connection zone:
