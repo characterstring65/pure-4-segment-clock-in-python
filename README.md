@@ -107,18 +107,15 @@ With the central colon indicators wired to be **constantly active via simple onb
 
 This systematic approach can be mirrored for calendar data (Day:Month). The time literally glides before your eyes, making the interface completely organic and naturally legible within moments of use.
 
+#### 🚨 Smart Blink Polarity Signaling (For Multimeters)
+To bypass the need for a 17th segment element (the minus sign) in test equipment, a negative measurement is indicated by **flashing/blinking the entire display**. From an ergonomic standpoint, this high-contrast visual cue is instantly recognizable in a technician's peripheral vision while performing microscopic SMD testing.
+
 #### 💡 Zero-Wire Threshold Status LED Integration
 As an ultimate feat of minimalist hardware engineering, a direct-view surface-mount **Status LED** (e.g., a green continuity/pass indicator) can be embedded directly onto the LCD substrate without adding a single extra connection trace. This keeps the external interface at the absolute mathematical limit of **exactly 8 wires**.
 
 * **Forward Voltage Threshold Logic:** The LED is wired in parallel across two existing matrix lines. Standard LCD segments operate at low AC voltages (e.g., 1.5V to 2.0V), which remains strictly below the semiconductor turn-on threshold (*forward voltage*) of a typical green or blue LED (approx. 2.8V to 3.2V). During normal measurement readouts, the LED remains completely dark and invisible.
-* **High-Voltage Micro-Pulse Signaling:** When a status trigger occurs (such as a successful continuity test or a warning), the microcontroller injects a brief, higher-voltage pulse (e.g., 3.3V to 5.0V) between the rows during the display's blanking phase.
-* * **Zero Visual Interference:** Because a liquid crystal (LCD) reacts relatively slowly to voltage changes (tens of milliseconds), the micro-second electrical pulse passes completely unnoticed by the display segment, while causing the ultra-fast SMD LED to emit a bright, instantaneous strobe flash. 
-
-#### 🚨 Smart Blink Polarity Signaling (For Multimeters)
-To bypass the need for a 17th segment element (the minus sign) in test equipment, a negative measurement is indicated by **flashing/blinking the entire display**. From an ergonomic standpoint, this high-contrast visual cue is instantly recognizable in a technician's peripheral vision while performing microscopic SMD testing.
-
-#### 🔄 Flip-Up Design & Twin-Probe Flexibility
-With only 8 connections required at the edge of the narrow substrate, the display can easily be designed as a flip-up or tiltable module. Furthermore, these 8 thin conductors can seamlessly be routed alongside the main measurement wire to the second probe pen for a dual-display setup.
+* **High-Voltage Micro-Pulse Signaling:** When a status trigger occurs (such as a successful continuity test or a warning), the microcontroller injects a brief, higher-voltage pulse (e.g., 3.3V to 5.0V) between the rows during the display's blanking phase. 
+* **Zero Visual Interference:** Because a liquid crystal (LCD) reacts relatively slowly to voltage changes (tens of milliseconds), the micro-second electrical pulse passes completely unnoticed by the display segment, while causing the ultra-fast SMD LED to emit a bright, instantaneous strobe flash.
 
 #### 🔍 Professional 4-Wire Kelvin Measurement Integration
 To transition this device from a simple gadget into a laboratory-grade precision instrument, the retractable cable architecture between the two probe pens utilizes a **9-conductor layout** to enable true **4-point (Kelvin) resistance measurements**.
@@ -134,20 +131,28 @@ To keep the pen-multimeter ultra-compact and streamlined enough to fit effortles
 * **Voltage Drop Via Ohm's Law:** By placing this external shunt wire in series with the target circuit, the pen-multimeter uses its sharp probe tips to measure the pure voltage drop (in millivolts) across the known external resistance. Utilizing Ohm's Law ($I = U / R$), the internal microcontroller instantaneously calculates the exact current and displays it seamlessly as "Amperes" on the LCD.
 * **Thermal and Spatial Isolation:** Any heat generated during high-current testing remains entirely outside the pen housing. This keeps the primary instrument in your pocket featherlight, ultra-slim, and perfectly safe, without sacrificing the capabilities of a full-featured multimeter.
 
+#### 🔄 Flip-Up Design & Twin-Probe Flexibility
+With only 8 matrix connections required at the edge of the narrow substrate (or 9 including the Kelvin Sense line), the display can easily be designed as a flip-up or tiltable module. Furthermore, these thin conductors can seamlessly be routed alongside the main measurement wire to the second probe pen for a dual-display setup.
+
 ### 📐 Physical Space & Mechanical Layout Optimization
 
 To allow for an optimal flip-up viewing angle on an 8 mm thick pen or probe device, the glass substrate extends exactly **8 mm beyond the position of the final digit**. This extra surface area provides a highly reliable, hidden mechanical connection zone:
 
 * **Internal Rotation Substrate:** Approximately **6 mm** of this extended glass substrate rotates directly into the interior of the 8 mm thick pen chassis. This allows the internal hinge mechanism to shield the delicate electrical contacts.
 * **Protected Electrode Connection Vias:** Within this 6 mm internal section, the transparent ITO (Indium Tin Oxide) matrix traces widen into robust connection electrodes. An elastomeric zebra-strip connector or a micro-FPC ribbon cable is compressed against this zone, completely isolated from external environmental stress, dust, or handling.
-* **Seamless Trace Routing:** The remaining **2 mm** acts as a sleek, borderless transition bridge outside the chassis, ensuring that all 16 routing traces can seamlessly run parallel down to the 8 core edge connectors without intersecting or cluttering the active viewing window.
+* **Seamless Trace Routing:** The remaining **2 mm** acts as a sleek, borderless transition bridge outside the chassis, ensuring that all routing traces can seamlessly run parallel down to the core edge connectors without intersecting or cluttering the active viewing window.
 
-### 🏭 Exclusive Custom Manufacturing & Implementation
+### 🏭 Exclusive Custom Manufacturing & DIY Prototyping
 
-The mathematical clarity and minimal requirements of this 4x4 matrix mapping provide everything needed to commission a fully custom, tailored LCD glass pane. This layout contains all the blueprint data an LCD manufacturer needs to produce the custom display.
+The mathematical clarity and minimal requirements of this 4x4 matrix mapping provide everything needed to commission a fully custom, tailored LCD glass pane. This layout contains all the blueprint data an LCD manufacturer needs to produce the custom display. While custom glass panels might sound complex, modern manufacturing techniques mean it is a highly viable and exclusive option—it is absolutely worth requesting a quote from a custom LCD manufacturer to turn this exact segment architecture into a physical, bespoke hardware component.
 
-While custom glass panels might sound complex, modern manufacturing techniques mean it is a highly viable and exclusive option. It is absolutely worth requesting a quote from a custom LCD manufacturer to turn this exact segment architecture into a physical, bespoke hardware component for your high-end hardware projects.
+#### 🛠️ Maker's Tip: Zero-Cost DIY Hand-Ground LED Lenses
+For makers, tinkerers, and hardware enthusiasts who enjoy hands-on *fiddling* and want to drive prototype costs down to an absolute zero-tooling minimum, there is a charming, artisanal alternative to custom LCD glass:
+* **Individual SMD LEDs + Custom Lightguides:** Instead of ordering custom glass, build the 4x4 matrix using standard, ultra-cheap individual SMD LEDs mounted on a simple PCB.
+* **Hand-Shaped Acrylic Lenses:** Craft tiny, individual lightguide lenses out of clear acrylic (PMMA) by carefully filing, grinding, and polishing them into the exact calligraphic curves of segments S1 through S4. 
+* **Artisanal Optical Glow:** Placed directly over the point-source LEDs, these hand-ground lenses diffuse the light evenly along each organic stroke. It is a rewarding, patient piece of craftsmanship that yields a warm, deep optical glow with virtually zero financial investment.
 
 ## License
 
 This project is licensed under the MIT License. Feel free to use, modify, and build upon this matrix for your own hardware or software display projects!
+
