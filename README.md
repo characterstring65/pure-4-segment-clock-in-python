@@ -96,7 +96,12 @@ Because a 4x4 matrix yields exactly 16 intersection points, this layout achieves
 
 ---
 
-### 🔹 Ergonomic Innovations
+### 🔹 Ergonomic & Optical Innovations
+
+#### 🎨 Zero-Cost Light-Gray Dithered Overlaps (Enhanced Legibility)
+To allow fluid, calligraphic strokes to physically cross and overlap on a single-layer LCD without short-circuiting the transparent ITO traces—or requiring expensive dual-layer glass—the intersection zones utilize a **micro-checkerboard dithering mask** (etched at standard 0.05 mm to 0.1 mm factory design rules). We thereby gain cleaner visual shape recognition and can slightly cheat on the width of the segments to achieve increased contrast.
+* **Optical Depth & Continuity:** When a single segment passes through an intersection, 50% of the micro-squares illuminate, blending visually into a clean **light-gray overlap**. The human brain instinctively perceives this subtle gray tone as a continuous, overlapping stroke rather than an abrupt cut or visual blob, dramatically improving digit legibility.
+* **Zero Extra Manufacturing Cost:** Because standard custom LCDs are produced via a single photolithographic etching mask, incorporating fine dithered intersection patterns adds **$0.00 to NRE/tooling or unit production costs** while keeping the pin count strictly at 8 wires.
 
 #### ⏱️ The "Fluid Time" Cycled Display (For Rings & Pens)
 When applied to ultra-compact consumer gadgets like a wristless ring-watch or a slim writing pen, the 4-digit display completely bypasses the space limitations of 6-digit layouts (HH:MM:SS) by utilizing time-based animation logic. 
@@ -134,6 +139,9 @@ To keep the pen-multimeter ultra-compact and streamlined enough to fit effortles
 #### 🔄 Flip-Up Design & Twin-Probe Flexibility
 With only 8 matrix connections required at the edge of the narrow substrate (or 9 including the Kelvin Sense line), the display can easily be designed as a flip-up or tiltable module. Furthermore, these thin conductors can seamlessly be routed alongside the main measurement wire to the second probe pen for a dual-display setup.
 
+#### 🚨 Smart Blink Polarity Signaling (For Multimeters)
+To bypass the need for a 17th segment element (the minus sign) in test equipment, a negative measurement is indicated by **flashing/blinking the entire display**. From an ergonomic standpoint, this high-contrast visual cue is instantly recognizable in a technician's peripheral vision while performing microscopic SMD testing.
+
 ### 📐 Physical Space & Mechanical Layout Optimization
 
 To allow for an optimal flip-up viewing angle on an 8 mm thick pen or probe device, the glass substrate extends exactly **8 mm beyond the position of the final digit**. This extra surface area provides a highly reliable, hidden mechanical connection zone:
@@ -144,7 +152,9 @@ To allow for an optimal flip-up viewing angle on an 8 mm thick pen or probe devi
 
 ### 🏭 Exclusive Custom Manufacturing & DIY Prototyping
 
-The mathematical clarity and minimal requirements of this 4x4 matrix mapping provide everything needed to commission a fully custom, tailored LCD glass pane. This layout contains all the blueprint data an LCD manufacturer needs to produce the custom display. While custom glass panels might sound complex, modern manufacturing techniques mean it is a highly viable and exclusive option—it is absolutely worth requesting a quote from a custom LCD manufacturer to turn this exact segment architecture into a physical, bespoke hardware component.
+The mathematical clarity and minimal requirements of this 4x4 matrix mapping provide everything needed to commission a fully custom, tailored LCD glass pane. This layout contains all the blueprint data an LCD manufacturer needs to produce the custom display.
+
+While custom glass panels might sound complex, modern manufacturing techniques mean it is a highly viable and exclusive option. It is absolutely worth requesting a quote from a custom LCD manufacturer to turn this exact segment architecture into a physical, bespoke hardware component for your high-end hardware projects.
 
 #### 🛠️ Maker's Tip: Zero-Cost DIY Hand-Ground LED Lenses
 For makers, tinkerers, and hardware enthusiasts who enjoy hands-on *fiddling* and want to drive prototype costs down to an absolute zero-tooling minimum, there is a charming, artisanal alternative to custom LCD glass:
