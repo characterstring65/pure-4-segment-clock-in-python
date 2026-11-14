@@ -184,6 +184,7 @@ This updated version of the scalable micro-LCD simulator demonstrates the **50% 
 * **Both Segments Active:** When S2 and S4 are triggered simultaneously (such as in digits `4`, `8`, and `9`), the overlapping elements combine into **solid black**.
 
 This visual depth preserves the natural, fluid geometry of the characters and ensures effortless legibility even when scaled down to micro-display dimensions.
+This visual appearance represents the direct result of the simplified, single-layer manufacturing approach for the 4-segment display digit design.
 
 #### 🛠️ Maker's Tip: Zero-Cost DIY Hand-Ground LED Lenses
 For makers, tinkerers, and hardware enthusiasts who enjoy hands-on *fiddling* and want to drive prototype costs down to an absolute zero-tooling minimum, there is a charming, artisanal alternative to custom LCD glass:
