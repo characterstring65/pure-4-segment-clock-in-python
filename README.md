@@ -176,6 +176,15 @@ To get an accurate, real-world impression of the legibility at these tiny dimens
 
 At that distance, the monitor's pixel grid blends out, accurately mimicking the razor-sharp visual clarity and effortless legibility of an actual physical micro-LCD held at normal reading distance.
 
+### 🏁 Checkerboard Overlap Simulation (`micro_lcd_checkerboard_clock.py`)
+
+This updated version of the scalable micro-LCD simulator demonstrates the **50% dithered checkerboard overlap** between segments **S2** and **S4**:
+
+* **Single Segment Active:** When only S2 or S4 is active, the shared overlapping strokes appear in **light gray**, mimicking the visual effect of a half-filled micro-checkerboard pattern on a single-layer LCD.
+* **Both Segments Active:** When S2 and S4 are triggered simultaneously (such as in digits `4`, `8`, and `9`), the overlapping elements combine into **solid black**.
+
+This visual depth preserves the natural, fluid geometry of the characters and ensures effortless legibility even when scaled down to micro-display dimensions.
+
 #### 🛠️ Maker's Tip: Zero-Cost DIY Hand-Ground LED Lenses
 For makers, tinkerers, and hardware enthusiasts who enjoy hands-on *fiddling* and want to drive prototype costs down to an absolute zero-tooling minimum, there is a charming, artisanal alternative to custom LCD glass:
 * **Individual SMD LEDs + Custom Lightguides:** Instead of ordering custom glass, build the 4x4 matrix using standard, ultra-cheap individual SMD LEDs mounted on a simple PCB.
