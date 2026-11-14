@@ -156,6 +156,26 @@ The mathematical clarity and minimal requirements of this 4x4 matrix mapping pro
 
 While custom glass panels might sound complex, modern manufacturing techniques mean it is a highly viable and exclusive option. It is absolutely worth requesting a quote from a custom LCD manufacturer to turn this exact segment architecture into a physical, bespoke hardware component for your high-end hardware projects.
 
+## 📱 Interactive Micro-LCD Simulator (`LCD_like_python_clock.py`)
+
+To give readers, engineers, and designers a realistic impression of how legible this pure 4-segment matrix is in real-world hardware, this repository includes a scalable micro-LCD simulation (`LCD_like_python_clock.py`).
+
+Rendered in the classic reflective greenish-gray tint of a standard passive LCD, the window can be smoothly resized to simulate physical digit heights ranging from approximately **4 mm to 12 mm**—matching the exact dimensions required for narrow SMD multimeter probes, smart rings, or slim writing pens.
+
+### Controls
+* **Zoom / Scale (4 mm – 12 mm):** Use the **mouse scroll wheel** (or press `+` / `-` on your keyboard) to dynamically shrink or enlarge the display.
+* **Reposition:** Left-click and drag anywhere on the display to move it across your screen.
+* **Exit:** Right-click on the display (or press `Esc`) to close the simulation.
+
+### 💡 Important Note on Screen Resolution & Viewing Distance
+When scaling the simulation down to its smallest micro-sizes (around 4 mm to 5 mm), a standard computer monitor will hit its physical pixel-density (PPI) limit. Because monitor pixels are arranged in a coarse square grid, the smooth, curved strokes of the 4-segment digits will naturally appear slightly jagged or pixelated up close—something that does **not** happen on a real custom-etched LCD glass pane, where the segments are razor-sharp.
+
+To get an accurate, real-world impression of the legibility at these tiny dimensions:
+1. Scale the clock down to a small size (e.g., 6 mm to 8 mm).
+2. **Step back or view your monitor from a slightly greater distance** (roughly 1 to 1.5 meters / 3 to 5 feet away). 
+
+At that distance, the monitor's pixel grid blends out, accurately mimicking the razor-sharp visual clarity and effortless legibility of an actual physical micro-LCD held at normal reading distance.
+
 #### 🛠️ Maker's Tip: Zero-Cost DIY Hand-Ground LED Lenses
 For makers, tinkerers, and hardware enthusiasts who enjoy hands-on *fiddling* and want to drive prototype costs down to an absolute zero-tooling minimum, there is a charming, artisanal alternative to custom LCD glass:
 * **Individual SMD LEDs + Custom Lightguides:** Instead of ordering custom glass, build the 4x4 matrix using standard, ultra-cheap individual SMD LEDs mounted on a simple PCB.
